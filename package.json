@@ -4,7 +4,8 @@
   "description": "Example of using Playwright with TypeScript",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --project \"Google Chrome\""
+    "test": "npx playwright test --project \"Google Chrome\"",
+    "report": "npx playwright show-report"
   },
   "keywords": [],
   "author": "",
