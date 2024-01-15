@@ -15,9 +15,9 @@ test('Verify that user fails to login specific repository successfully via Dashb
   const loginMessage = 'Username or password is invalid';
   const loginPage = new LoginPage(page);
   await loginPage.go();
-  page.on('dialog', dialog => {
+  page.on('dialog', async dialog => {
     expect(dialog.message()).toBe(loginMessage);
-    dialog.dismiss();
+    await dialog.dismiss();
   });
   await loginPage.login('incorrect', 'credential');
 })
