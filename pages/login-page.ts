@@ -1,4 +1,4 @@
-import { Locator, Page, expect } from "@playwright/test";
+import { Locator, Page, expect, test } from "@playwright/test";
 
 export default class LoginPage {
   readonly repoCbx: Locator = this.page.locator('#repository');
@@ -12,14 +12,18 @@ export default class LoginPage {
   }
 
   async login(username: string, password: string, repo?: string): Promise<void> {
-    if (repo !== null && repo !== undefined) await this.repoCbx.selectOption(repo);
-    await this.usernameTxt.fill(username);
-    await this.passwordTxt.fill(password);
-    await this.loginBtn.click();
+    await test.step('Login to repo with given credentials', async () => {
+      if (repo !== null && repo !== undefined) await this.repoCbx.selectOption(repo);
+      await this.usernameTxt.fill(username);
+      await this.passwordTxt.fill(password);
+      await this.loginBtn.click();
+    });
   }
 
   async displays(): Promise<void> {
-    await expect(this.usernameTxt).toBeVisible();
-    await expect(this.passwordTxt).toBeVisible();
+    await test.step('Verify login page displays', async () => {
+      await expect(this.usernameTxt).toBeVisible();
+      await expect(this.passwordTxt).toBeVisible();
+    });
   }
 }

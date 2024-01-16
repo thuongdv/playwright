@@ -28,3 +28,4 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 .idea
+allure-results
