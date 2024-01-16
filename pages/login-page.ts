@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { Locator, Page, expect } from "@playwright/test";
 
 export default class LoginPage {
   readonly repoCbx: Locator = this.page.locator('#repository');
@@ -16,5 +16,10 @@ export default class LoginPage {
     await this.usernameTxt.fill(username);
     await this.passwordTxt.fill(password);
     await this.loginBtn.click();
+  }
+
+  async displays(): Promise<void> {
+    await expect(this.usernameTxt).toBeVisible();
+    await expect(this.passwordTxt).toBeVisible();
   }
 }
