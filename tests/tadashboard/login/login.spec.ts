@@ -25,6 +25,6 @@ test("Verify that user fails to login specific repository successfully via Dashb
   await loginPage.open();
   await loginPage.login("incorrect", "credential");
   await dialog.handleDialog();
-  dialog.verifyMessageDisplays(loginMessage);
+  await dialog.verifyMessageDisplays(loginMessage);
   await loginPage.displays();
 });
