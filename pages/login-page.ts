@@ -7,7 +7,7 @@ export default class LoginPage {
   readonly loginBtn: Locator = this.page.locator(".btn-login");
   constructor(private readonly page: Page) {}
 
-  async go(): Promise<void> {
+  async open(): Promise<void> {
     await this.page.goto("/TADashboard/login.jsp");
   }
 
