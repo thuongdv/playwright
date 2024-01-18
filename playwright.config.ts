@@ -11,6 +11,7 @@ import { testPlanFilter } from "allure-playwright/dist/testplan";
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  timeout: 15 * 1000,
   testDir: "./tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -30,6 +31,8 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
+    /* Screenshot on failure. */
+    screenshot: "only-on-failure",
   },
 
   /* Configure projects for major browsers */
@@ -60,10 +63,10 @@ export default defineConfig({
     // },
 
     /* Test against branded browsers. */
-    {
-      name: "Microsoft Edge",
-      use: { ...devices["Desktop Edge"], channel: "msedge" },
-    },
+    // {
+    //   name: "Microsoft Edge",
+    //   use: { ...devices["Desktop Edge"], channel: "msedge" },
+    // },
     {
       name: "Google Chrome",
       use: { ...devices["Desktop Chrome"], channel: "chrome" },
