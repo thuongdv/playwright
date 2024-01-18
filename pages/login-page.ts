@@ -1,11 +1,12 @@
 import { Locator, Page, expect, test } from "@playwright/test";
 
 export default class LoginPage {
-  readonly repoCbx: Locator = this.page.locator("#repository");
-  readonly usernameTxt: Locator = this.page.getByRole("textbox", { name: "username" });
-  readonly passwordTxt: Locator = this.page.getByRole("textbox", { name: "password" });
-  readonly loginBtn: Locator = this.page.locator(".btn-login");
-  constructor(private readonly page: Page) {}
+  private readonly repoCbx: Locator = this.page.locator("#repository");
+  private readonly usernameTxt: Locator = this.page.getByRole("textbox", { name: "username" });
+  private readonly passwordTxt: Locator = this.page.getByRole("textbox", { name: "password" });
+  private readonly loginBtn: Locator = this.page.locator(".btn-login");
+
+  constructor(private readonly page: Page) { }
 
   async open(): Promise<void> {
     await this.page.goto("/TADashboard/login.jsp");
