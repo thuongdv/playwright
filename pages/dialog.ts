@@ -7,13 +7,13 @@ export default class Dialog {
   }
 
   async verifyMessageDisplays(msg: string): Promise<void> {
-    await test.step('Verify dialog message content', () => {
+    await test.step("Verify dialog message content", () => {
       expect(msg).toEqual(this.message.trim());
-    })
+    });
   }
 
   async handleDialog(): Promise<void> {
-    await test.step('Get dialog message then dismiss it', async () => {
+    await test.step("Get dialog message then dismiss it", async () => {
       const dialog = await this.page.waitForEvent("dialog", { timeout: 3_000 });
       this.message = dialog.message();
       await dialog.accept();

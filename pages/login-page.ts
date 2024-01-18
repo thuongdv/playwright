@@ -6,7 +6,7 @@ export default class LoginPage {
   private readonly passwordTxt: Locator = this.page.getByRole("textbox", { name: "password" });
   private readonly loginBtn: Locator = this.page.locator(".btn-login");
 
-  constructor(private readonly page: Page) { }
+  constructor(private readonly page: Page) {}
 
   async open(): Promise<void> {
     await this.page.goto("/TADashboard/login.jsp");
