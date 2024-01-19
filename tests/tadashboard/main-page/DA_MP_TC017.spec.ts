@@ -2,7 +2,7 @@ import { test } from "@playwright/test";
 import DashboardMainPage from "pages/dashboard-main-page";
 import LoginPage from "pages/login-page";
 import users from "../../../data/users.json";
-import NewPage from "pages/new-page";
+import NewPageForm from "pages/new-page-form";
 import { DateTimeHelper } from "support/helpers/date-time-helper";
 
 test(
@@ -11,7 +11,7 @@ test(
   async ({ page }) => {
     const loginPage = new LoginPage(page);
     const dashboardMainPage = new DashboardMainPage(page);
-    const newPage = new NewPage(page);
+    const newPage = new NewPageForm(page);
 
     const parentPageName = DateTimeHelper.getToday();
     const chillPageName = "Child " + DateTimeHelper.getToday();
