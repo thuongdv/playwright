@@ -51,10 +51,15 @@ test(
     await dashboardMainPage.deletePageAndVerifyDialogMessage(deletePageMsg);
 
     // Check children page is deleted
-    // Click on  parent page
+
+    // Click on parent page
+    await dashboardMainPage.selectMenu(parentPageName);
+
     // Click "Delete" link
     // Check confirm message "Are you sure you want to remove this page?" appears
     // Click OK button
+    await dashboardMainPage.deletePageAndVerifyDialogMessage(deletePageMsg);
+
     // Check parent page is deleted
     // Click on "Overview" page
     // Check "Delete" link disappears

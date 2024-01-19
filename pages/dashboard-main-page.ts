@@ -1,14 +1,15 @@
 import { Page, expect, test } from "@playwright/test";
 
 export default class DashboardMainPage {
-  private readonly settingLocator = this.page.locator("#main-menu .mn-setting");
+  private readonly menuLocator = this.page.locator("#main-menu");
+  private readonly settingLocator = this.menuLocator.locator(".mn-setting");
   private readonly deleteLnk = this.settingLocator.locator("a.delete");
 
   constructor(private readonly page: Page) {}
 
   async displays(): Promise<void> {
     await test.step("Verify dashboard main page displays", async () => {
-      await expect(this.page.locator("#main-menu li.active a.active")).toHaveText("Execution Dashboard");
+      await expect(this.menuLocator.locator("li.active a.active")).toHaveText("Execution Dashboard");
     });
   }
 
@@ -47,10 +48,6 @@ export default class DashboardMainPage {
     });
   }
 
-  async selectMainMenu(item: string): Promise<void> {
-    await this.page.locator("#main-menu").getByText(item).click();
-  }
-
   async selectMenu(levelItem: string): Promise<void> {
     const menuItems: Array<string> = levelItem.split("->").map((s) => s.trim());
     if (menuItems.length > 5) {
@@ -58,17 +55,14 @@ export default class DashboardMainPage {
     }
 
     if (menuItems.length == 1) {
-      await this.page.locator("#main-menu").getByText(menuItems[0]).click();
+      await this.menuLocator.getByText(menuItems[0]).click();
       return;
     }
 
     for (let i = 0; i < menuItems.length - 1; i++) {
-      await this.page.locator("#main-menu").getByText(menuItems[i]).hover();
+      await this.menuLocator.getByText(menuItems[i]).hover();
     }
 
-    await this.page
-      .locator("#main-menu")
-      .getByText(menuItems[menuItems.length - 1])
-      .click();
+    await this.menuLocator.getByText(menuItems[menuItems.length - 1]).click();
   }
 }
