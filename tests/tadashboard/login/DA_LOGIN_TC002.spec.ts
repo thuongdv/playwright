@@ -1,13 +1,10 @@
-import { test } from "@playwright/test";
-import LoginPage from "pages/login-page";
-import Dialog from "pages/dialog";
+import { test } from "fixtures/common-fixture";
 
 test("Verify that user fails to login specific repository successfully via Dashboard login page with incorrect credentials", async ({
-  page,
+  loginPage,
+  dialog,
 }) => {
   const loginMessage = "Username or password is invalid";
-  const loginPage = new LoginPage(page);
-  const dialog = new Dialog(page);
 
   // Navigate to Dashboard login page
   await loginPage.open();

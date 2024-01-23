@@ -1,4 +1,4 @@
-import { Locator, Page, test } from "@playwright/test";
+import { Page, test, Locator } from "fixtures/common-fixture";
 
 export type NewPageData = {
   pageName: string;

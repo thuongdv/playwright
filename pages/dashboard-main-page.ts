@@ -1,4 +1,4 @@
-import { Page, expect, test } from "@playwright/test";
+import { Page, expect, test } from "fixtures/common-fixture";
 
 export default class DashboardMainPage {
   private readonly menuLocator = this.page.locator("#main-menu");
