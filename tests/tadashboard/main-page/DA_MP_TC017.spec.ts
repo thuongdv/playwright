@@ -1,20 +1,13 @@
 import { test } from "fixtures/common-fixture";
-import users from "data/users.json";
 import { DateTimeHelper } from "support/helpers/date-time-helper";
 
 test(
   'Verify that user can remove any main parent page except "Overview" page successfully ' +
     "and the order of pages stays persistent as long as there is not children page under it",
-  async ({ loginPage, dashboardMainPage, newPageForm }) => {
+  async ({ dashboardMainPage, newPageForm }) => {
     const parentPageName = DateTimeHelper.getToday();
     const chillPageName = "Child " + DateTimeHelper.getToday();
     const deletePageMsg = "Are you sure you want to remove this page?";
-
-    // Navigate to Dashboard login page
-    await loginPage.open();
-
-    // Log in specific repository with valid account
-    await loginPage.login(users.adminUser.username, users.adminUser.password, "SampleRepository");
 
     // Add a new parent page
     await dashboardMainPage.selectSetting("Add Page");
