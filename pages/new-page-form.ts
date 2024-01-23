@@ -18,8 +18,8 @@ export default class NewPageForm {
 
   async create(data: NewPageData): Promise<void> {
     await test.step("Create new page", async () => {
-      data.pageName && await this.pageNameTxt.fill(data.pageName);
-      data.parentPage && await this.parentPageCbx.selectOption(data.parentPage);
+      data.pageName && (await this.pageNameTxt.fill(data.pageName));
+      data.parentPage && (await this.parentPageCbx.selectOption(data.parentPage));
 
       await this.okBtn.click();
     });

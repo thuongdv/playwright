@@ -33,9 +33,9 @@ export default defineConfig({
     /* Screenshot on failure. */
     screenshot: "only-on-failure",
     // Record video only when retrying a test for the first time.
-    video: 'on-first-retry',
+    video: "on-first-retry",
     // Channel to use, for example "chrome", "chrome-beta", "msedge", "msedge-beta".
-    channel: 'chrome',
+    channel: "chrome",
   },
 
   /* Configure projects for major browsers */

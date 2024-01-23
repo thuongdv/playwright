@@ -2,6 +2,22 @@
 
 Example of using Playwright with TypeScript
 
+## Project Structure
+
+- .github: Github workflow actions
+- data: Test data is used for test cases
+- pages: The Page Object Model
+- tests: All test features
+- playwright.config.js: Playwright configuration file
+- fixtures
+  - Fixture files for setting up shared test data and environment
+
+## Install dependencies
+
+```sh
+npm install
+```
+
 ## Run test
 
 - Run all the tests
@@ -32,4 +48,10 @@ npx playwright show-report
 
 ```sh
 npx eslint .
+```
+
+## Format code
+
+```sh
+npx prettier . --write
 ```
