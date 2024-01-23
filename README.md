@@ -2,6 +2,15 @@
 
 Example of using Playwright with TypeScript
 
+## Table of Contents
+
+- [Project Structure](#project-structure)
+- [Install dependencies](#install-dependencies)
+- [Run test](#run-test)
+- [View test result](#view-test-result)
+- [Lint code](#lint-code)
+- [Format code](#format-code)
+
 ## Project Structure
 
 - .github: Github workflow actions
@@ -44,7 +53,7 @@ npx playwright test --grep "@SmokeTest"
 npx playwright show-report
 ```
 
-## Lint the code
+## Lint code
 
 ```sh
 npx eslint .
