@@ -1,4 +1,4 @@
-import { test } from "fixtures/common-fixture";
+import { test } from "fixtures/user-based-worker-fixture";
 import { DateTimeHelper } from "support/helpers/date-time-helper";
 
 test(

@@ -21,6 +21,10 @@ Example of using Playwright with TypeScript
 - fixtures
   - Fixture files for setting up shared test data and environment
 
+## Project Note
+
+In parallel running, the AUT is not stable if multiple tests log with the same credentials. We apply the [Worker-scoped fixture](https://playwright.dev/docs/test-fixtures#worker-scoped-fixtures), so then if you want to run more four workers, please add more users in the **./data/users.json** file.
+
 ## Install dependencies
 
 ```sh
