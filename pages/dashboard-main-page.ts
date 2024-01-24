@@ -31,21 +31,24 @@ export default class DashboardMainPage {
         });
       });
 
-      await this.settingLocator.hover();
-      await this.deleteLnk.click();
+      await this.deletePage();
     });
   }
 
-  async deletePageAndVerifyDialogMessage(messages: string): Promise<void> {
+  async deletePageAndVerifyDialogMessage(message?: string): Promise<void> {
     await test.step("Delete page then verify dialog messages", async () => {
       this.page.once("dialog", async (dialog) => {
-        expect.soft(dialog.message().trim()).toEqual(messages);
+        message && expect.soft(dialog.message().trim()).toEqual(message);
         await dialog.accept();
       });
 
-      await this.settingLocator.hover();
-      await this.deleteLnk.click();
+      await this.deletePage();
     });
+  }
+
+  async deletePage(): Promise<void> {
+    await this.settingLocator.hover();
+    await this.deleteLnk.click();
   }
 
   async selectMenu(levelItem: string): Promise<void> {
@@ -55,14 +58,14 @@ export default class DashboardMainPage {
     }
 
     if (menuItems.length == 1) {
-      await this.menuLocator.getByText(menuItems[0]).click();
+      await this.menuLocator.getByText(menuItems[0], { exact: true }).click();
       return;
     }
 
     for (let i = 0; i < menuItems.length - 1; i++) {
-      await this.menuLocator.getByText(menuItems[i]).hover();
+      await this.menuLocator.getByText(menuItems[i], { exact: true }).hover();
     }
 
-    await this.menuLocator.getByText(menuItems[menuItems.length - 1]).click();
+    await this.menuLocator.getByText(menuItems[menuItems.length - 1], { exact: true }).click();
   }
 }
