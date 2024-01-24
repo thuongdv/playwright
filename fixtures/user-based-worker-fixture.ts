@@ -24,8 +24,8 @@ export const test = base.extend<Options & CommonFixture, { account: Account }>({
   // We can later override it in the config.
   defaultRepo: ["SampleRepository", { option: true }],
 
-  // eslint-disable-next-line no-empty-pattern
   account: [
+    // eslint-disable-next-line no-empty-pattern
     async ({}, use, workerInfo) => {
       // Unique username.
       const adminUser: string = `adminUser` + workerInfo.workerIndex;
