@@ -1,11 +1,10 @@
-import { expect, test } from "@playwright/test";
-import LoginPage from "pages/login-page";
+import { test, expect } from "fixtures/login-fixture";
 
 test("Verify that user fails to login specific repository successfully via Dashboard login page with incorrect credentials", async ({
+  loginPage,
   page,
 }) => {
   const loginMessage = "Username or password is invalid";
-  const loginPage = new LoginPage(page);
 
   // Navigate to Dashboard login page
   await loginPage.open();

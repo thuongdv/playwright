@@ -3,20 +3,22 @@
     "username": "administrator",
     "password": ""
   },
-  "adminUser0": {
-    "username": "admin1",
-    "password": ""
-  },
-  "adminUser1": {
-    "username": "admin2",
-    "password": ""
-  },
-  "adminUser2": {
-    "username": "admin3",
-    "password": ""
-  },
-  "adminUser3": {
-    "username": "admin4",
-    "password": ""
-  }
+  "parallelUsers": [
+    {
+      "username": "admin1",
+      "password": ""
+    },
+    {
+      "username": "admin2",
+      "password": ""
+    },
+    {
+      "username": "admin3",
+      "password": ""
+    },
+    {
+      "username": "admin4",
+      "password": ""
+    }
+  ]
 }

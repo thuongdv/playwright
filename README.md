@@ -5,6 +5,7 @@ Example of using Playwright with TypeScript
 ## Table of Contents
 
 - [Project Structure](#project-structure)
+- [Project Note](#project-note)
 - [Install dependencies](#install-dependencies)
 - [Run test](#run-test)
 - [View test result](#view-test-result)
@@ -23,7 +24,7 @@ Example of using Playwright with TypeScript
 
 ## Project Note
 
-In parallel running, the AUT is not stable if multiple tests log with the same credentials. We apply the [Worker-scoped fixture](https://playwright.dev/docs/test-fixtures#worker-scoped-fixtures), so then if you want to run more four workers, please add more users in the **./data/users.json** file.
+In parallel running, the AUT is not stable if multiple tests login with the same credentials. So, we apply the [Worker-scoped fixture](https://playwright.dev/docs/test-fixtures#worker-scoped-fixtures). If you want to run more four workers, please add more users in the **./data/users.json** file.
 
 ## Install dependencies
 

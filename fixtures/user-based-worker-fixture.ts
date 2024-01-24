@@ -3,6 +3,7 @@ import DashboardMainPage from "pages/dashboard-main-page";
 import LoginPage from "pages/login-page";
 import NewPageForm from "pages/new-page-form";
 import users from "data/users.json";
+import _ from "underscore";
 
 // Declare the types of your fixtures.
 type CommonFixture = {
@@ -28,9 +29,16 @@ export const test = base.extend<Options & CommonFixture, { account: Account }>({
     // eslint-disable-next-line no-empty-pattern
     async ({}, use, workerInfo) => {
       // Unique username.
-      const adminUser: string = `adminUser` + workerInfo.workerIndex;
-      const username: string = users[adminUser as keyof typeof users]["username"];
-      const password: string = users[adminUser as keyof typeof users]["password"];
+      let username: string;
+      let password: string;
+      if (users.parallelUsers[workerInfo.workerIndex] !== undefined) {
+        username = users.parallelUsers[workerInfo.workerIndex].username;
+        password = users.parallelUsers[workerInfo.workerIndex].password;
+      } else {
+        const idx = _.random(0, users.parallelUsers.length - 1);
+        username = users.parallelUsers[idx].username;
+        password = users.parallelUsers[idx].password;
+      }
 
       // Use the account value.
       await use({ username, password });
