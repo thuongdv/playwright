@@ -1,4 +1,4 @@
-import { Locator, Page, expect, test } from "fixtures/common-fixture";
+import { Locator, Page, expect, test } from "fixtures/login-fixture";
 
 export default class LoginPage {
   private readonly repoCbx: Locator = this.page.locator("#repository");

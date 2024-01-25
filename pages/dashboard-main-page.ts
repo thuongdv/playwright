@@ -1,4 +1,4 @@
-import { Page, expect, test } from "fixtures/common-fixture";
+import { Page, expect, test } from "fixtures/user-based-worker-fixture";
 
 export default class DashboardMainPage {
   private readonly menuLocator = this.page.locator("#main-menu");

@@ -1,12 +1,5 @@
-import { Page, test, Locator } from "fixtures/common-fixture";
-
-export type NewPageData = {
-  pageName: string;
-  parentPage?: string;
-  numberOfColumns?: number;
-  displayAfter?: string;
-  public?: boolean;
-};
+import { Page, test, Locator } from "fixtures/user-based-worker-fixture";
+import { NewPageModel } from "models/new-page-model";
 
 export default class NewPageForm {
   private readonly pageLocator: Locator = this.page.locator("#div_popup");
@@ -17,7 +10,7 @@ export default class NewPageForm {
 
   constructor(private readonly page: Page) {}
 
-  async create(data: NewPageData): Promise<void> {
+  async create(data: NewPageModel): Promise<void> {
     await test.step("Create new page", async () => {
       data.pageName && (await this.pageNameTxt.fill(data.pageName));
       data.parentPage && (await this.parentPageCbx.selectOption(data.parentPage));
