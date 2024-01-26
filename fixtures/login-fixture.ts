@@ -25,4 +25,5 @@ export const test = base.extend<Options & CommonFixture>({
     await use(new DashboardMainPage(page));
   },
 });
+
 export { expect, Page, Locator } from "@playwright/test";

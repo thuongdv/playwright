@@ -67,4 +67,5 @@ export const test = base.extend<Options & CommonFixture, { account: Account }>({
     await use(new NewPageForm(page));
   },
 });
+
 export { expect, Page, Locator } from "@playwright/test";
