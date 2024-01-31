@@ -27,4 +27,11 @@ export default class LoginPage {
       await expect(this.passwordTxt).toBeVisible();
     });
   }
+
+  async verifyErrorMessage(message: string): Promise<void> {
+    this.page.on("dialog", async (dialog) => {
+      expect.soft(dialog.message()).toEqual(message);
+      await dialog.accept();
+    });
+  }
 }
