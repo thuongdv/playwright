@@ -69,3 +69,10 @@ npx eslint .
 ```sh
 npx prettier . --write
 ```
+
+## VS Code extentions
+
+- [Run Playwright Test tests in Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
+- [Prettier code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [JavaScript and TypeScript playground in your editor](https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode)
+- [Make TypeScript errors prettier and more human-readable in VSCode](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors)
