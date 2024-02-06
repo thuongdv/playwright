@@ -4,7 +4,7 @@
   "description": "Example of using Playwright with TypeScript",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --project \"Google Chrome\" --headed --workers 4 && npm run report",
+    "test": "npx playwright test --project \"Google Chrome\" --headed --workers 1 && npm run report",
     "report": "npx playwright show-report",
     "allure-report": "npx allure serve allure-results",
     "fm": "npx prettier . --write",
