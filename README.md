@@ -21,23 +21,24 @@ Example of using Playwright with TypeScript
 - playwright.config.js: Playwright configuration file
 - fixtures
   - Fixture files for setting up shared test data and environment
+- models: Define data types and data examples
 
 ## Project Note
 
-In parallel running, the AUT is not stable if multiple tests login with the same credentials. So, we apply the [Worker-scoped fixture](https://playwright.dev/docs/test-fixtures#worker-scoped-fixtures). If you want to run more four workers, please add more users in the **./data/users.json** file.
+In parallel mode, the AUT is not stable if multiple tests login with the same credentials, so we apply the [Worker-scoped fixture](https://playwright.dev/docs/test-fixtures#worker-scoped-fixtures). If you want to run more four workers, please add more users in the **./data/users.json** file.
 
 ## Install dependencies
 
 ```sh
-npm install
+npm install && npx playwright install
 ```
 
 ## Run test
 
-- Run all the tests
+- Run all the tests with headed mode
 
 ```sh
-npx playwright test
+npx playwright test --headed
 ```
 
 - Run all the tests against a specific project
