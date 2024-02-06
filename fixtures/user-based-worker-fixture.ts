@@ -31,7 +31,12 @@ export const test = base.extend<Options & CommonFixture, { account: Account }>({
       // Unique username.
       let username: string;
       let password: string;
-      if (users.parallelUsers[workerInfo.workerIndex] !== undefined) {
+
+      // User default user if worker = 1
+      if (workerInfo.config.workers === 1) {
+        username = users.adminUser.username;
+        password = users.adminUser.password;
+      } else if (users.parallelUsers[workerInfo.workerIndex] !== undefined) {
         username = users.parallelUsers[workerInfo.workerIndex].username;
         password = users.parallelUsers[workerInfo.workerIndex].password;
       } else {
