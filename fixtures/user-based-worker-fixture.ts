@@ -32,7 +32,7 @@ export const test = base.extend<Options & CommonFixture, { account: Account }>({
       let username: string;
       let password: string;
 
-      // User default user if worker = 1
+      // Use default user if worker = 1
       if (workerInfo.config.workers === 1) {
         username = users.adminUser.username;
         password = users.adminUser.password;
