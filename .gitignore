@@ -29,3 +29,4 @@ node_modules/
 /playwright/.cache/
 .idea
 allure-results
+dist/
