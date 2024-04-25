@@ -2,7 +2,7 @@ import { test as base } from "@playwright/test";
 import DashboardMainPage from "pages/dashboard-main-page";
 import LoginPage from "pages/login-page";
 import NewPageForm from "pages/new-page-form";
-import users from "fixtures/data/users.json";
+import users from "data/users.json";
 
 // Declare the types of your fixtures.
 type CommonFixture = {
