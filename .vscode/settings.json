@@ -26,7 +26,9 @@
     "msedge",
     "luxon",
     "commandline",
-    "ispublic"
+    "ispublic",
+    "jsxdev",
+    "thuongdv"
   ],
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"

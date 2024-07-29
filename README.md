@@ -71,7 +71,7 @@ npx eslint .
 npx prettier . --write
 ```
 
-## VS Code extentions
+## VS Code extensions
 
 - [Run Playwright Test tests in Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
 - [Prettier code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
