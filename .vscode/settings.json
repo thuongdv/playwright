@@ -25,7 +25,8 @@
     "testplan",
     "msedge",
     "luxon",
-    "commandline"
+    "commandline",
+    "ispublic"
   ],
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
