@@ -1,9 +1,9 @@
-import { Page, expect, test } from "fixtures/user-based-worker-fixture";
+import { Page, expect, test, Locator } from "fixtures/user-based-worker-fixture";
 
 export default class DashboardMainPage {
-  private readonly menuLocator = this.page.locator("#main-menu");
-  private readonly settingLocator = this.menuLocator.locator(".mn-setting");
-  private readonly deleteLnk = this.settingLocator.locator("a.delete");
+  private readonly menuLocator: Locator = this.page.locator("#main-menu");
+  private readonly settingLocator: Locator = this.menuLocator.locator(".mn-setting");
+  private readonly deleteLnk: Locator = this.settingLocator.locator("a.delete");
 
   constructor(private readonly page: Page) {}
 
