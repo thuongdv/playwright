@@ -14,7 +14,7 @@ export default class NewPageForm {
     await test.step("Create new page", async () => {
       data.pageName && (await this.pageNameTxt.fill(data.pageName));
       data.parentPage && (await this.parentPageCbx.selectOption(data.parentPage));
-      data.public && (data.public === true ? await this.publicChk.check() : await this.publicChk.uncheck());
+      data.public && (await this.publicChk.setChecked(data.public === true));
 
       await this.okBtn.click();
     });
