@@ -28,7 +28,9 @@
     "commandline",
     "ispublic",
     "jsxdev",
-    "thuongdv"
+    "thuongdv",
+    "abcdefghi",
+    "datetime"
   ],
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"

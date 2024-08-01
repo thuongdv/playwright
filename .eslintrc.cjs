@@ -6,12 +6,13 @@ module.exports = {
   root: true,
   rules: {
     "@typescript-eslint/no-floating-promises": "error",
-    "@typescript-eslint/no-unsafe-call": "error"
+    "@typescript-eslint/no-unsafe-call": "error",
+    "@typescript-eslint/no-misused-promises": "off",
   },
   parserOptions: {
     sourceType: "module",
     tsconfigRootDir: __dirname,
     project: ["./tsconfig.json"],
   },
-  ignorePatterns: [".eslintrc.cjs"],
+  ignorePatterns: [".eslintrc.cjs", "playwright-report/*", "test-results/*"],
 };
