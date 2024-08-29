@@ -30,7 +30,8 @@
     "jsxdev",
     "thuongdv",
     "abcdefghi",
-    "datetime"
+    "datetime",
+    "reportportal"
   ],
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"

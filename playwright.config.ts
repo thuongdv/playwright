@@ -1,5 +1,20 @@
-import { defineConfig, devices } from "@playwright/test";
+import { devices } from "@playwright/test";
 import { testPlanFilter } from "allure-playwright/dist/testplan";
+import { PlaywrightTestConfig } from "@playwright/test";
+import _ from "underscore";
+
+const RPconfig = {
+  apiKey: process.env.RP_API_KEY,
+  endpoint: process.env.RP_ENDPOINT,
+  project: "playwright-demo",
+  launch: "playwright-demo",
+  description: "Playwright with Report Portal",
+  includeTestSteps: true,
+};
+
+const config: PlaywrightTestConfig = {
+  reporter: [["@reportportal/agent-js-playwright", RPconfig], ["html"]],
+};
 
 /**
  * Read environment variables from file.
@@ -10,7 +25,7 @@ import { testPlanFilter } from "allure-playwright/dist/testplan";
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig({
+const defaultConfig: PlaywrightTestConfig = {
   timeout: 15 * 1000,
   testDir: "./tests",
   /* Run tests in files in parallel */
@@ -40,46 +55,11 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    // {
-    //   name: 'chromium',
-    //   use: { ...devices['Desktop Chrome'] },
-    // },
-
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
-
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: "Microsoft Edge",
-    //   use: { ...devices["Desktop Edge"], channel: "msedge" },
-    // },
     {
       name: "Google Chrome",
-      use: { ...devices["Desktop Chrome"], channel: "chrome" },
+      use: { ...devices["Desktop Chrome"], channel: "chrome", viewport: { width: 1600, height: 900 } },
     },
   ],
+};
 
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://127.0.0.1:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
-});
+export default process.env.REPORT === "rp" ? _.extend(defaultConfig, config) : defaultConfig;
