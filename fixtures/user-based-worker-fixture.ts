@@ -26,8 +26,7 @@ export const test = base.extend<Options & CommonFixture, { account: Account }>({
   defaultRepo: ["SampleRepository", { option: true }],
 
   account: [
-    // eslint-disable-next-line no-empty-pattern
-    async ({}, use, workerInfo) => {
+    async ({}, use, workerInfo): Promise<void> => {
       // Unique username.
       let username: string;
       let password: string;

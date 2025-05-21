@@ -1,9 +1,9 @@
+import { format } from "date-fns";
 import { test } from "fixtures/user-based-worker-fixture";
 import DashboardMainPage from "pages/dashboard-main-page";
-import { DateTimeHelper } from "support/helpers/date-time-helper";
 
 let dashboardMPage: DashboardMainPage;
-const pageName = DateTimeHelper.getToday();
+const pageName = format(new Date(), "yyyy-MM-dd")
 
 test("Verify that 'Public' pages can be visible and accessed by all users of working repository", async ({
   dashboardMainPage,

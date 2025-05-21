@@ -8,6 +8,8 @@ module.exports = {
     "@typescript-eslint/no-floating-promises": "error",
     "@typescript-eslint/no-unsafe-call": "error",
     "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/explicit-function-return-type": "error",
+    "no-empty-pattern": "off",
   },
   parserOptions: {
     sourceType: "module",

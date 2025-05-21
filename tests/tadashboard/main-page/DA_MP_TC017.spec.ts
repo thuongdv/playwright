@@ -1,12 +1,13 @@
 import { test } from "fixtures/user-based-worker-fixture";
-import { DateTimeHelper } from "support/helpers/date-time-helper";
+
+import { format } from 'date-fns';
 
 test(
   'Verify that user can remove any main parent page except "Overview" page successfully ' +
     "and the order of pages stays persistent as long as there is not children page under it",
   async ({ dashboardMainPage, newPageForm }) => {
-    const parentPageName = DateTimeHelper.getToday();
-    const chillPageName = "Child " + DateTimeHelper.getToday();
+    const parentPageName = format(new Date(), "yyyy-MM-dd");
+    const chillPageName = "Child " + format(new Date(), "yyyy-MM-dd");
     const deletePageMsg = "Are you sure you want to remove this page?";
 
     // Add a new parent page
